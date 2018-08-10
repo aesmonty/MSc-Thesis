@@ -17,20 +17,22 @@ total_vesting_fund_steem = [192270346.255, 192300884.844, 192446781.229, 1925095
 
 dates = ["21-06-2018", "22-06-2018", "23-06-2018", "24-06-2018", "25-06-2018"]
 
-#g = (total_vesting_shares*reward_balance)/(total_vesting_fund_steem*recent_claims)
+#d = (total_vesting_shares*reward_balance)/(total_vesting_fund_steem*recent_claims)
 
 #print(type(g))
-g = []
+d = []
 interest = []
 
 for i in range(0, len(total_vesting_fund_steem)):
-    g.append((total_vesting_shares[i]*reward_balance[i])/(total_vesting_fund_steem[i]*recent_claims[i]))
-    interest.append((1+ 1.4*g[i])**52)
-    print(interest[i])
+    d.append((total_vesting_shares[i]*reward_balance[i])/(total_vesting_fund_steem[i]*recent_claims[i]))
+    interest.append((1+ 1.4*d[i])**52)
+    #print(interest[i])
 
-average = sum(interest) / float(len(interest))
+averageInterest = sum(interest) / float(len(interest))
+average_d = sum(d) / float(len(d))
 
-print (average)
-plt.plot(dates,g)
-plt.show()
+print(d)
+print(average_d)
+print (averageInterest)
+
 
