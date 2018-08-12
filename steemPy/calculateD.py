@@ -22,17 +22,27 @@ dates = ["21-06-2018", "22-06-2018", "23-06-2018", "24-06-2018", "25-06-2018"]
 #print(type(g))
 d = []
 interest = []
+interest2 = []
+interest3 = []
 
 for i in range(0, len(total_vesting_fund_steem)):
     d.append((total_vesting_shares[i]*reward_balance[i])/(total_vesting_fund_steem[i]*recent_claims[i]))
     interest.append((1+ 1.4*d[i])**52)
-    #print(interest[i])
+    interest2.append((1+ d[i]/50)**3650)
+    interest3.append((1+ d[i]/5000)**365000)
+    
+
+  
 
 averageInterest = sum(interest) / float(len(interest))
+averageInterest2 = sum(interest2) / float(len(interest2))
+averageInterest3 = sum(interest3) / float(len(interest3))
 average_d = sum(d) / float(len(d))
 
 print(d)
 print(average_d)
 print (averageInterest)
+print(averageInterest2)
+print(averageInterest3)
 
 
